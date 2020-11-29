@@ -105,13 +105,13 @@ app.get("/", function (req, res) {
     } else {
       User.find({}, function (err, foundUsers) {
         console.log(foundUsers.length );
-        if (foundUsers.length === 1) {
+        if (foundUsers.length === 0) {
           console.log(defaulUsers );
           User.insertMany(defaulUsers, function (err) {
             if (err) {
               console.log(err);
             } else {
-              console.log("Successfully savevd default users to DB.");
+              console.log("Successfully saved default users to DB.");
             }
           });
       //     res.redirect("/");
